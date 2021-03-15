@@ -18,8 +18,8 @@ test(function() {
       for (var j = i+1; j < end; j++) {
         var h2 = times[j];
         var diff = h2 - h1;
-        assert_true((diff === 0) || ((diff * 1000) >= 100),
-          "Differences smaller than 100 microseconds: " + diff);
+        assert_true((diff === 0) || ((diff * 1000) >= 5),
+          "Differences smaller than 5 microseconds: " + diff);
       }
     }
     return true;
@@ -28,6 +28,7 @@ test(function() {
   var times = new Array(10);
   var index = 0;
   var hrt1, hrt2, hrt;
+  assert_true(self.crossOriginIsolated, "Document is cross-origin isolated");
 
   // rapid firing of performance.now
   hrt1 = performance.now();
@@ -41,13 +42,13 @@ test(function() {
     times[index++] = hrt;
   } while ((hrt - hrt1) === 0);
 
-  assert_true(check_resolutions(times, index), 'Difference should be at least 100 microseconds.');
-}, 'The recommended minimum resolution of the Performance interface has been set to 100 microseconds');
+  assert_true(check_resolutions(times, index), 'Difference should be at least 5 microseconds.');
+}, 'The recommended minimum resolution of the Performance interface has been set to 5 microseconds for cross-origin isolated contexts.');
 </script>
 </head>
 <body>
 <h1>Description</h1>
-<p>The recommended minimum resolution of the Performance interface should be set to 100 microseconds for non-isolated contexts.</p>
+<p>The recommended minimum resolution of the Performance interface should be set to 5 microseconds.</p>
 
 <div id="log"></div>
 
