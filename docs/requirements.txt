@@ -2,3 +2,8 @@ recommonmark==0.7.1
 # Pin this to the same major version as https://docs.python.org/3/
 Sphinx==2.4.4  # pyup: <3.0
 sphinx-argparse==0.2.5
+certifi>=2023.7.22 # not directly required, pinned by Snyk to avoid a vulnerability
+idna>=3.7 # not directly required, pinned by Snyk to avoid a vulnerability
+jinja2>=3.1.4 # not directly required, pinned by Snyk to avoid a vulnerability
+pygments>=2.15.0 # not directly required, pinned by Snyk to avoid a vulnerability
+requests>=2.31.0 # not directly required, pinned by Snyk to avoid a vulnerability
