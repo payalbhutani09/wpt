@@ -2,3 +2,4 @@ recommonmark==0.7.1
 # Pin this to the same major version as https://docs.python.org/3/
 Sphinx==2.4.4  # pyup: <3.0
 sphinx-argparse==0.2.5
+urllib3>=2.2.2 # not directly required, pinned by Snyk to avoid a vulnerability
